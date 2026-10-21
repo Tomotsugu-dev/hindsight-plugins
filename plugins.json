@@ -3,11 +3,29 @@
   "plugins": [
     {
       "id": "hindsight-focus",
-      "name": "专注",
+      "name": "Focus",
       "author": "Tomotsugu-dev",
       "description": "按工作节奏计时，摸鱼时提醒，在菜单栏的岛上倒数",
       "repo": "Tomotsugu-dev/hindsight-focus",
       "versions": [
+        {
+          "version": "0.2.1",
+          "url": "https://github.com/Tomotsugu-dev/hindsight-focus/releases/download/0.2.1/hindsight-focus-0.2.1.zip",
+          "sha256": "0459a781334a1a3fe31dfd0641bde73d96f9782970a1b405c1684363d7fe539c",
+          "permissions": [
+            "stats.read",
+            "stats.today",
+            "stats.month",
+            "categories.read",
+            "super_categories.read",
+            "focus.changed",
+            "focus.app",
+            "focus.category",
+            "notifications",
+            "island"
+          ],
+          "storage_mb": 1
+        },
         {
           "version": "0.1.30",
           "url": "https://github.com/Tomotsugu-dev/hindsight-focus/releases/download/0.1.30/hindsight-focus-0.1.30.zip",
