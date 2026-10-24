@@ -27,6 +27,27 @@
           "storage_mb": 1
         }
       ]
+    },
+    {
+      "id": "hindsight-reminder",
+      "name": "网站与程序提醒",
+      "author": "Yoshino2000",
+      "description": "进入指定网站或程序时发送自定义通知，支持多规则、启停和冷却时间 / Custom notifications when entering a website or app, with multiple rules, pause switches and cooldowns",
+      "repo": "Yoshino2000/hindsight-reminder",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "url": "https://github.com/Yoshino2000/hindsight-reminder/releases/download/1.0.1/hindsight-reminder-1.0.1.zip",
+          "sha256": "5052bed59b1af9f4fd59ee34dbbeb4f14b534a559680dbd5d709e70b2a05e197",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "notifications"
+          ],
+          "storage_mb": 1
+        }
+      ]
     }
   ]
 }
