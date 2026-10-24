@@ -27,6 +27,30 @@
           "storage_mb": 1
         }
       ]
+    },
+    {
+      "id": "hindsight-garden",
+      "name": "时光花园",
+      "author": "Yoshino2000",
+      "description": "直接使用 Hindsight 分类、大类或程序网站规则累计种花，支持可选中断惩罚和花园收藏 / Grow flowers with Hindsight categories, groups, apps or websites, with optional interruption penalties and a lasting garden",
+      "repo": "Yoshino2000/hindsight-garden",
+      "versions": [
+        {
+          "version": "0.3.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.3.0/hindsight-garden-0.3.0.zip",
+          "sha256": "1878dfd06dfbf2580d571f217c2daa12a1490c7e1095c4fa1bb215e20cb81bcc",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 4
+        }
+      ]
     }
   ]
 }
