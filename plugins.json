@@ -1,11 +1,18 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "plugins": [
     {
       "id": "hindsight-focus",
       "name": "Focus",
       "author": "Tomotsugu-dev",
-      "description": "按工作节奏计时，摸鱼时提醒，支持灵动岛",
+      "description": {
+        "zh-CN": "按工作节奏计时，摸鱼时提醒，支持灵动岛",
+        "zh-TW": "按工作節奏計時，摸魚時提醒，支援靈動島",
+        "en": "Times your work to a rhythm, notifies you when you get distracted, and works with the island",
+        "ja": "作業のリズムに合わせて時間を計り、サボっているときに知らせます。アイランドに対応",
+        "pt-BR": "Cronometra seu trabalho no seu ritmo, avisa quando você se distrai e funciona com a ilha",
+        "es": "Cronometra tu trabajo a tu ritmo, te avisa cuando te distraes y funciona con la isla"
+      },
       "repo": "Tomotsugu-dev/hindsight-focus",
       "versions": [
         {
