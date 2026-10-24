@@ -32,7 +32,10 @@
       "id": "hindsight-reminder",
       "name": "网站与程序提醒",
       "author": "Yoshino2000",
-      "description": "进入指定网站或程序时发送自定义通知，支持多规则、启停和冷却时间 / Custom notifications when entering a website or app, with multiple rules, pause switches and cooldowns",
+      "description": {
+        "zh-CN": "进入指定网站或程序时发送自定义通知，支持多规则、启停和冷却时间",
+        "en": "Custom notifications when entering a website or app, with multiple rules, pause switches and cooldowns"
+      },
       "repo": "Yoshino2000/hindsight-reminder",
       "versions": [
         {
