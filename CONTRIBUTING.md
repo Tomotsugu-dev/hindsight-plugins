@@ -1,0 +1,102 @@
+# Contributing
+
+This repository holds the list behind the Hindsight plugin market: [plugins.json](plugins.json) and the icons in [icons/](icons/). It holds no plugin code. To put a plugin or a new version in the market, open a pull request that changes these files.
+
+Anyone can submit a plugin. A plugin whose repository is not under `Tomotsugu-dev` is a third-party plugin: before installing it, the user is warned that it is not official and could leak personal information.
+
+## Before you open a pull request
+
+- The plugin installs from a zip and works. See [Install it on your computer](docs/en/getting-started.md#install-it-on-your-computer).
+- Its code is in a public GitHub repository.
+- The zip is a release asset in that repository, such as `https://github.com/someone/hindsight-pomodoro/releases/download/0.1.0/hindsight-pomodoro-0.1.0.zip`.
+
+Do not replace a zip that is already listed. Its SHA-256 would change, and every download would fail. Publish a new version instead.
+
+## Listing a new plugin
+
+1. Fork this repository and create a branch.
+2. Add your plugin to `plugins` in `plugins.json`:
+
+   ```json
+   {
+     "id": "hindsight-pomodoro",
+     "name": "Pomodoro",
+     "author": "someone",
+     "description": {
+       "zh-CN": "25 分钟专注，5 分钟休息",
+       "en": "Focus for 25 minutes, then rest for 5"
+     },
+     "repo": "someone/hindsight-pomodoro",
+     "versions": [
+       {
+         "version": "0.1.0",
+         "url": "https://github.com/someone/hindsight-pomodoro/releases/download/0.1.0/hindsight-pomodoro-0.1.0.zip",
+         "sha256": "…",
+         "permissions": ["notifications", "island"],
+         "storage_mb": 1
+       }
+     ]
+   }
+   ```
+
+3. Add `icons/<id>.png`: the same file as `icon.png` in your zip.
+4. Check that the file is still valid JSON: `python3 -m json.tool plugins.json > /dev/null`
+5. Open a pull request titled `feat: list <name>`, such as `feat: list Pomodoro`.
+
+## Listing a new version
+
+1. Publish the zip as a release asset.
+2. Add the version to the start of `versions`, with its own `url`, `sha256`, `permissions` and `storage_mb`.
+3. If the icon changed, replace `icons/<id>.png`.
+4. Open a pull request titled `feat: list <name> <version>`, such as `feat: list Pomodoro 0.2.0`.
+
+Older versions can stay in `versions`. The market offers the newest one, whatever the order in the file, and users can pick an older one from the menu of an installed plugin.
+
+## plugins.json
+
+`format_version` is 2. Hindsight 0.10.2 and later read only format 2, and 0.10.0 and 0.10.1 only format 1. A version of Hindsight that cannot read the format shows an error in place of the downloadable plugins.
+
+Each plugin:
+
+| Field | Description |
+|---|---|
+| `id` | Same as `id` in the manifest. No other plugin in the list may use it |
+| `name` | Shown in the market. Use the `name` in the manifest: after install, Hindsight shows that one |
+| `author` | Your name or GitHub account. Shown in the market, and in the install dialog of a third-party plugin |
+| `description` | The description in each language, from an interface language code to the text: `zh-CN`, `zh-TW`, `en`, `ja`, `pt-BR` or `es`. The market shows the interface language; without it, `en`; without `en`, the first language by code. Codes must match exactly: `zh-TW` does not fall back to `zh-CN`. Include at least `en` |
+| `repo` | Your plugin's repository, as `owner/name`. A plugin whose repository is under `Tomotsugu-dev` is official: its install dialog has no warning about third-party plugins |
+| `versions` | The versions users can install |
+
+Each version:
+
+| Field | Description |
+|---|---|
+| `version` | Same as `version` in the manifest, such as `0.1.0`. A version that is not three numbers is skipped |
+| `url` | The zip, a release asset of `repo`. At most 500 MB |
+| `sha256` | SHA-256 of the zip |
+| `permissions` | Copy from the manifest |
+| `storage_mb` | Copy from the manifest. Leave it out if the manifest has none |
+
+- The user agrees to `permissions` and `storage_mb` as written here, and the plugin gets exactly these. Hindsight does not compare them with the manifest, so a permission missing here makes the plugin's calls fail.
+- After the download, Hindsight checks the SHA-256 and the `id` and `version` in the zip's manifest. If any of them does not match, the zip is deleted.
+- The market shows `icons/<id>.png` as the plugin's icon, or the default icon if there is none. After install, Hindsight shows `icon.png` from the zip instead.
+
+To get the SHA-256 of a zip:
+
+- macOS: `shasum -a 256 hindsight-pomodoro-0.1.0.zip`
+- Windows (PowerShell): `(Get-FileHash hindsight-pomodoro-0.1.0.zip -Algorithm SHA256).Hash`
+
+Upper or lower case both work.
+
+## Review
+
+Before merging, the maintainer checks that:
+
+- `id` is not used by another plugin;
+- `version`, `permissions` and `storage_mb` match the manifest in the zip;
+- `sha256` matches the zip at `url`;
+- `repo` is yours, holds the plugin's code, and `url` is one of its release assets;
+- `icons/<id>.png` is the same image as `icon.png` in the zip;
+- the plugin installs from the market and works.
+
+After the merge, the plugin shows up the next time users open Settings → Plugins. GitHub caches the list for up to 5 minutes, so it can take that long.
