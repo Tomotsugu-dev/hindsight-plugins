@@ -70,6 +70,21 @@
       "repo": "Yoshino2000/hindsight-garden",
       "versions": [
         {
+          "version": "0.12.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.12.0/hindsight-garden-0.12.0.zip",
+          "sha256": "fc5bf5032a4476f02bc0aaa43aba9319cc4721ceae2b278c2ec7b3588bd31fda",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
           "version": "0.11.0",
           "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.11.0/hindsight-garden-0.11.0.zip",
           "sha256": "cb1c7bc6abb6038c9cc9abbc3fedd7738e55c091ec5d63bedfcc1dbc2ecf10ec",
