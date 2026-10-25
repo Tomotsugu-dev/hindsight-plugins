@@ -90,14 +90,19 @@ Upper or lower case both work.
 
 ## Review
 
-Before merging, the maintainer checks that:
+A script checks each pull request that changes the list, and writes what it found as a comment on the pull request. It checks the rules on this page, and downloads each new zip to check it with the same rules as Hindsight: the SHA-256, the manifest, the permissions and the icon. Fix every problem in the comment.
 
-- `id` is not used by another plugin;
-- `version`, `permissions` and `storage_mb` match the manifest in the zip;
-- `sha256` matches the zip at `url`;
-- `repo` is yours, holds the plugin's code, and `url` is one of its release assets;
-- `icons/<id>.png` is the same image as `icon.png` in the zip;
-- the plugin installs from the market and works.
+To run the same check before you open the pull request, commit your changes, then run this with Python 3.9 or later:
+
+```sh
+git fetch https://github.com/Tomotsugu-dev/hindsight-plugins.git main
+python3 scripts/check_listing.py FETCH_HEAD HEAD
+```
+
+Then the maintainer checks that:
+
+- `repo` is yours and holds the plugin's code;
+- the plugin installs and works.
 
 After the merge, the plugin shows up the next time users open Settings → Plugins. GitHub caches the list for up to 5 minutes, so it can take that long.
 
@@ -176,12 +181,11 @@ The name, author and description come from `theme.json` in the zip, so write the
 
 ### Theme review
 
-Before merging, the maintainer checks that:
+The same script as for plugins checks themes, see [Review](#review). It also checks that `theme.css` loads no files: no `@import`, and `url()` only with `data:` addresses.
 
-- `id` is not used by another theme;
-- `sha256` matches the zip at `url`;
-- `repo` is yours, and `url` is one of its release assets;
-- the theme imports into Hindsight and works;
-- `theme.css` loads nothing from the internet.
+Then the maintainer checks that:
+
+- `repo` is yours;
+- the theme imports into Hindsight and looks right.
 
 After the merge, the theme shows up on the website within 10 minutes. The website checks the zip again every day. If the zip in the release was replaced, the website stops showing the theme.
