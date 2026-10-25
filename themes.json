@@ -12,6 +12,18 @@
           "sha256": "9d6c794ec292bd1231ba1502106d2cd0143cb51260e42efafc50aa5c23ad195f"
         }
       ]
+    },
+    {
+      "id": "sakura-notes",
+      "repo": "Tomotsugu-dev/hindsight-themes",
+      "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/sakura-notes",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/download/sakura-notes-1.0.1/sakura-notes-1.0.1.zip",
+          "sha256": "8f7926066b19c18effaf0775b470235741bb5b0284b1400087b3e344960d7fce"
+        }
+      ]
     }
   ]
 }
