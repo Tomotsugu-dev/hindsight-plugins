@@ -64,11 +64,26 @@
       "name": "时光花园",
       "author": "Yoshino2000",
       "description": {
-        "zh-CN": "使用 Hindsight 分类或程序网站规则累计种花，支持可选中断惩罚、花园相册和按周回看",
-        "en": "Grow flowers with Hindsight categories, apps or websites, with optional interruption penalties and weekly garden albums"
+        "zh-CN": "使用 Hindsight 活动累计种花，保存方案与任务记忆，查看周回顾、收藏成就和花园主题",
+        "en": "Grow flowers from Hindsight activity, save planting plans and task notes, and explore weekly reviews, achievements and garden themes"
       },
       "repo": "Yoshino2000/hindsight-garden",
       "versions": [
+        {
+          "version": "0.11.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.11.0/hindsight-garden-0.11.0.zip",
+          "sha256": "cb1c7bc6abb6038c9cc9abbc3fedd7738e55c091ec5d63bedfcc1dbc2ecf10ec",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
         {
           "version": "0.10.0",
           "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.10.0/hindsight-garden-0.10.0.zip",
