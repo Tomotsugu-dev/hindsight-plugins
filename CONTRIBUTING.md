@@ -1,6 +1,6 @@
 # Contributing
 
-This repository holds the list behind the Hindsight plugin market: [plugins.json](plugins.json) and the icons in [icons/](icons/). It holds no plugin code. To put a plugin or a new version in the market, open a pull request that changes these files.
+This repository holds the list behind the Hindsight plugin market: [plugins.json](plugins.json) and the icons in [icons/](icons/). It also holds [themes.json](themes.json), the list behind the [theme website](https://hindsight.kyosweb.com/themes/). It holds no plugin or theme code. To list a plugin, a theme or a new version, open a pull request that changes these files.
 
 Anyone can submit a plugin. A plugin whose repository is not under `Tomotsugu-dev` is a third-party plugin: before installing it, the user is warned that it is not official and could leak personal information.
 
@@ -100,3 +100,88 @@ Before merging, the maintainer checks that:
 - the plugin installs from the market and works.
 
 After the merge, the plugin shows up the next time users open Settings → Plugins. GitHub caches the list for up to 5 minutes, so it can take that long.
+
+## Themes
+
+The [theme website](https://hindsight.kyosweb.com/themes/) lists the themes in `themes.json`. Each theme has three buttons: Preview tries the theme in a demo of Hindsight, Homepage opens your page, and Download opens the release of the newest listed version. To make a theme, see [Hindsight themes](https://github.com/Tomotsugu-dev/Hindsight/blob/main/docs/design/themes/README.md).
+
+### Before you open a pull request
+
+- The theme imports into Hindsight and looks right: Settings → Appearance → Custom themes → Import theme.
+- The zip is a release asset in a public GitHub repository.
+- The zip holds one folder named after the theme's `id`, with `theme.json` and, if you have one, `theme.css`. The zip is at most 5 MB:
+
+  ```
+  harbor-1.0.0.zip
+  └── harbor/
+      ├── theme.json
+      └── theme.css
+  ```
+
+Do not replace a zip that is already listed. Its SHA-256 would change, and the website would stop showing the theme. Publish a new version instead.
+
+### Listing a new theme
+
+1. Fork this repository and create a branch.
+2. Add your theme to `themes` in `themes.json`:
+
+   ```json
+   {
+     "id": "harbor",
+     "repo": "someone/hindsight-harbor",
+     "homepage": "https://someone.github.io/harbor/",
+     "versions": [
+       {
+         "version": "1.0.0",
+         "url": "https://github.com/someone/hindsight-harbor/releases/download/1.0.0/harbor-1.0.0.zip",
+         "sha256": "…"
+       }
+     ]
+   }
+   ```
+
+3. Check that the file is still valid JSON: `python3 -m json.tool themes.json > /dev/null`
+4. Open a pull request titled `feat: list the <name> theme`, such as `feat: list the Harbor theme`.
+
+### Listing a new theme version
+
+1. Publish the zip as a release asset.
+2. Add the version to the start of `versions`, with its own `url` and `sha256`.
+3. Open a pull request titled `feat: list the <name> theme <version>`, such as `feat: list the Harbor theme 1.1.0`.
+
+The website shows only the first version. Keep the older versions: their downloads count toward the theme's total.
+
+### themes.json
+
+`format_version` is 1.
+
+Each theme:
+
+| Field | Description |
+|---|---|
+| `id` | Same as `id` in `theme.json`. No other theme in the list may use it, and it cannot be `index` |
+| `repo` | Your theme's repository, as `owner/name` |
+| `homepage` | Optional. Your own page for the theme. It must start with `https://`. Without it, the Homepage button opens `https://github.com/<repo>` |
+| `versions` | The listed versions, newest first |
+
+Each version:
+
+| Field | Description |
+|---|---|
+| `version` | Same as `version` in `theme.json` |
+| `url` | The zip, a release asset of `repo` |
+| `sha256` | SHA-256 of the zip. Get it the same way as for a [plugin zip](#pluginsjson) |
+
+The name, author and description come from `theme.json` in the zip, so write them only there.
+
+### Theme review
+
+Before merging, the maintainer checks that:
+
+- `id` is not used by another theme;
+- `sha256` matches the zip at `url`;
+- `repo` is yours, and `url` is one of its release assets;
+- the theme imports into Hindsight and works;
+- `theme.css` loads nothing from the internet.
+
+After the merge, the theme shows up on the website within 10 minutes. The website checks the zip again every day. If the zip in the release was replaced, the website stops showing the theme.
