@@ -1,0 +1,46 @@
+# Counts the downloads of each plugin once a day and writes them to downloads.json in the stats
+# branch. The Hindsight plugin market reads this file.
+name: Count downloads
+
+on:
+  schedule:
+    # Not on the hour: scheduled runs are most often late or dropped then
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: count-downloads
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Count downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/count_downloads.py plugins.json "$RUNNER_TEMP/downloads.json"
+
+      - name: Commit to the stats branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # The stats branch holds only downloads.json. The first run has no such branch yet, so
+          # it creates an empty one
+          if git fetch --depth 1 origin stats; then
+            git switch -c stats FETCH_HEAD
+          else
+            git switch --orphan stats
+          fi
+          cp "$RUNNER_TEMP/downloads.json" downloads.json
+          git add downloads.json
+          if git diff --cached --quiet; then
+            echo "The download counts did not change."
+            exit 0
+          fi
+          git commit -m "chore: update download counts"
+          git push origin stats
