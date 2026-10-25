@@ -1,11 +1,18 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "plugins": [
     {
       "id": "hindsight-focus",
       "name": "Focus",
       "author": "Tomotsugu-dev",
-      "description": "按工作节奏计时，摸鱼时提醒，支持灵动岛",
+      "description": {
+        "zh-CN": "按工作节奏计时，摸鱼时提醒，支持灵动岛",
+        "zh-TW": "按工作節奏計時，摸魚時提醒，支援靈動島",
+        "en": "Times your work to a rhythm, notifies you when you get distracted, and works with the island",
+        "ja": "作業のリズムに合わせて時間を計り、サボっているときに知らせます。アイランドに対応",
+        "pt-BR": "Cronometra seu trabalho no seu ritmo, avisa quando você se distrai e funciona com a ilha",
+        "es": "Cronometra tu trabajo a tu ritmo, te avisa cuando te distraes y funciona con la isla"
+      },
       "repo": "Tomotsugu-dev/hindsight-focus",
       "versions": [
         {
@@ -29,12 +36,54 @@
       ]
     },
     {
+      "id": "hindsight-reminder",
+      "name": "网站与程序提醒",
+      "author": "Yoshino2000",
+      "description": {
+        "zh-CN": "进入指定网站或程序时发送自定义通知，支持多规则、启停和冷却时间",
+        "en": "Custom notifications when entering a website or app, with multiple rules, pause switches and cooldowns"
+      },
+      "repo": "Yoshino2000/hindsight-reminder",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "url": "https://github.com/Yoshino2000/hindsight-reminder/releases/download/1.0.1/hindsight-reminder-1.0.1.zip",
+          "sha256": "5052bed59b1af9f4fd59ee34dbbeb4f14b534a559680dbd5d709e70b2a05e197",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "notifications"
+          ],
+          "storage_mb": 1
+        }
+      ]
+    },
+    {
       "id": "hindsight-garden",
       "name": "时光花园",
       "author": "Yoshino2000",
-      "description": "直接使用 Hindsight 分类、大类或程序网站规则累计种花，支持可选中断惩罚和花园收藏 / Grow flowers with Hindsight categories, groups, apps or websites, with optional interruption penalties and a lasting garden",
+      "description": {
+        "zh-CN": "使用 Hindsight 分类或程序网站规则累计种花，支持可选中断惩罚、花园相册和按周回看",
+        "en": "Grow flowers with Hindsight categories, apps or websites, with optional interruption penalties and weekly garden albums"
+      },
       "repo": "Yoshino2000/hindsight-garden",
       "versions": [
+        {
+          "version": "0.4.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.4.0/hindsight-garden-0.4.0.zip",
+          "sha256": "48ead5d86d9a31c64b9e998f3326adf255fc5f95c0b4c2258d4e480b04ce58d6",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 4
+        },
         {
           "version": "0.3.0",
           "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.3.0/hindsight-garden-0.3.0.zip",
