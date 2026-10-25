@@ -58,6 +58,153 @@
           "storage_mb": 1
         }
       ]
+    },
+    {
+      "id": "hindsight-garden",
+      "name": "时光花园",
+      "author": "Yoshino2000",
+      "description": {
+        "zh-CN": "使用 Hindsight 活动累计种花，保存方案与任务记忆，查看周回顾、收藏成就和花园主题",
+        "en": "Grow flowers from Hindsight activity, save planting plans and task notes, and explore weekly reviews, achievements and garden themes"
+      },
+      "repo": "Yoshino2000/hindsight-garden",
+      "versions": [
+        {
+          "version": "0.11.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.11.0/hindsight-garden-0.11.0.zip",
+          "sha256": "cb1c7bc6abb6038c9cc9abbc3fedd7738e55c091ec5d63bedfcc1dbc2ecf10ec",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.10.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.10.0/hindsight-garden-0.10.0.zip",
+          "sha256": "5c7a0722cd5e656021af41a2fda5af6d7e6fbc32f41e063c408b5266b9248dcd",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.9.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.9.0/hindsight-garden-0.9.0.zip",
+          "sha256": "0aeeb172c960d8c475ca3a4bb7a6f77da83566f7f272dca8109e2b410b3f87a3",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.8.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.8.0/hindsight-garden-0.8.0.zip",
+          "sha256": "6b8de16abed7a8737c0082a551fac37522565a8cc7fcf8863716555c52fe3beb",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.7.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.7.0/hindsight-garden-0.7.0.zip",
+          "sha256": "91dbf3e23b76affbca7bcbb33d700f0dd5b096e7796dd5e4cb89caf39b5fd242",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.6.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.6.0/hindsight-garden-0.6.0.zip",
+          "sha256": "6ad8917dc00148376a6e097beb5e090c538a407b539656fd05ef25ebc86c2112",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.5.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.5.0/hindsight-garden-0.5.0.zip",
+          "sha256": "75a3e5ea7170b3516c408a42c486789aab87c1f33653511985b9c8ae61dd0d63",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 64
+        },
+        {
+          "version": "0.4.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.4.0/hindsight-garden-0.4.0.zip",
+          "sha256": "48ead5d86d9a31c64b9e998f3326adf255fc5f95c0b4c2258d4e480b04ce58d6",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 4
+        },
+        {
+          "version": "0.3.0",
+          "url": "https://github.com/Yoshino2000/hindsight-garden/releases/download/0.3.0/hindsight-garden-0.3.0.zip",
+          "sha256": "1878dfd06dfbf2580d571f217c2daa12a1490c7e1095c4fa1bb215e20cb81bcc",
+          "permissions": [
+            "focus.changed",
+            "focus.app",
+            "focus.title",
+            "focus.category",
+            "categories.read",
+            "super_categories.read",
+            "notifications"
+          ],
+          "storage_mb": 4
+        }
+      ]
     }
   ]
 }
