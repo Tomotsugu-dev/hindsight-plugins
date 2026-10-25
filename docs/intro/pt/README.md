@@ -2,10 +2,10 @@
   <img src="../../images/hindsight-logo.png" alt="Hindsight" width="140">
 </p>
 
-<h1 align="center">Loja de plugins do Hindsight</h1>
+<h1 align="center">Loja de plugins e temas do Hindsight</h1>
 
 <p align="center">
-  Explore plugins, crie o seu e envie uma nova versão para a loja.
+  Explore plugins e temas, crie o seu plugin e envie-o para a loja.
 </p>
 
 <p align="center">
@@ -18,12 +18,14 @@
 </p>
 
 <p align="center">
-  <a href="#plugins">Ver plugins</a> · <a href="#criar-um-plugin">Criar um plugin</a> · <a href="#publicar-um-plugin">Publicar um plugin</a>
+  <a href="#plugins">Ver plugins</a> · <a href="#criar-um-plugin">Criar um plugin</a> · <a href="#publicar-um-plugin">Publicar um plugin</a> · <a href="#temas">Temas</a>
 </p>
 
 ---
 
-A lista de plugins da loja de plugins do [Hindsight](https://github.com/Tomotsugu-dev/Hindsight). Sempre que o usuário abre Ajustes → Plugins, o Hindsight lê o [plugins.json](../../../plugins.json) e os ícones em [icons/](../../../icons/) da branch `main` deste repositório. O GitHub mantém esses arquivos em cache por até 5 minutos, então uma alteração enviada pode levar esse tempo para aparecer.
+A lista de plugins da loja de plugins do [Hindsight](https://github.com/Tomotsugu-dev/Hindsight). Sempre que o usuário abre Ajustes → Plugins, o Hindsight lê o [plugins.json](../../../plugins.json) e os ícones em [icons/](../../../icons/) da branch `main` deste repositório.
+
+Este repositório também guarda o [themes.json](../../../themes.json), a lista de temas do [site de temas](https://hindsight.kyosweb.com/themes/).
 
 ## Plugins
 
@@ -45,6 +47,15 @@ Os plugins exigem o Hindsight 0.10.0 ou posterior.
 ## Publicar um plugin
 
 Plugins e novas versões entram na loja por pull request. Os passos, os campos do `plugins.json` e o que a revisão verifica estão em [CONTRIBUTING.md](../../../CONTRIBUTING.md) (em inglês).
+
+## Temas
+
+Um tema muda a aparência do Hindsight. No [site de temas](https://hindsight.kyosweb.com/themes/), você pode testar cada tema no navegador antes de baixá-lo. Descompacte o download e, no Hindsight, abra Ajustes → Aparência → Temas personalizados, clique em Importar tema e escolha `theme.json`.
+
+- Como criar um tema: [Write a Hindsight theme](../../en/themes.md) (em inglês)
+- Como publicar um tema: [Themes](../../../CONTRIBUTING.md#themes) no CONTRIBUTING.md (em inglês)
+
+Os temas exigem o Hindsight 0.10.2 ou posterior.
 
 ## Plugins de terceiros
 
