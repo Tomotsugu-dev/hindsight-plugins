@@ -1,4 +1,17 @@
 {
   "format_version": 1,
-  "themes": []
+  "themes": [
+    {
+      "id": "vermillion-cover",
+      "repo": "Tomotsugu-dev/hindsight-themes",
+      "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/vermillion-cover",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/download/vermillion-cover-1.0.0/vermillion-cover-1.0.0.zip",
+          "sha256": "9d6c794ec292bd1231ba1502106d2cd0143cb51260e42efafc50aa5c23ad195f"
+        }
+      ]
+    }
+  ]
 }
