@@ -50,6 +50,15 @@ def fetch_releases(repo, token):
 
     The result maps (tag, file name) to the number of downloads.
     """
+    return {key: asset["downloads"] for key, asset in fetch_assets(repo, token).items()}
+
+
+def fetch_assets(repo, token):
+    """Returns the downloads and digest of each file in the latest 100 releases of the repository.
+
+    The result maps (tag, file name) to {"downloads": downloads, "digest": "sha256:…"}. If GitHub
+    gives no digest for a file, its digest is None.
+    """
     request = urllib.request.Request(
         f"https://api.github.com/repos/{repo}/releases?per_page=100",
         headers={
@@ -62,7 +71,10 @@ def fetch_releases(repo, token):
     with urllib.request.urlopen(request, timeout=30) as response:
         releases = json.load(response)
     return {
-        (release["tag_name"], asset["name"]): asset["download_count"]
+        (release["tag_name"], asset["name"]): {
+            "downloads": asset["download_count"],
+            "digest": asset.get("digest"),
+        }
         for release in releases
         for asset in release["assets"]
     }
