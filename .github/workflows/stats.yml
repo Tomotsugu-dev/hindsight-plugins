@@ -1,0 +1,70 @@
+# Writes two things to the stats branch: the download count of each plugin (downloads.json), read
+# by the Hindsight plugin market, and the files of the theme website (themes/), read by the Hindsight
+# website. Runs once a day, and when themes.json or these scripts change on main.
+name: Stats
+
+on:
+  schedule:
+    # Not on the hour: scheduled runs are most often late or dropped then
+    - cron: "17 3 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - themes.json
+      - scripts/build_themes.py
+      - scripts/count_downloads.py
+      - .github/workflows/stats.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A run waits for the one before it, so two runs never push to the stats branch at the same time
+concurrency:
+  group: stats
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The stats branch has none of these files, so keep them before switching to it
+      - name: Keep the inputs
+        run: cp -r scripts plugins.json themes.json "$RUNNER_TEMP/"
+
+      - name: Switch to the stats branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # The first run has no stats branch yet, so it creates an empty one
+          if git fetch --depth 1 origin stats; then
+            git switch -c stats FETCH_HEAD
+          else
+            git switch --orphan stats
+          fi
+
+      - name: Count downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 "$RUNNER_TEMP/scripts/count_downloads.py" "$RUNNER_TEMP/plugins.json" downloads.json
+
+      # build_themes.py reads the files of its last run from themes/
+      - name: Build the theme files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 "$RUNNER_TEMP/scripts/build_themes.py" "$RUNNER_TEMP/themes.json" themes
+
+      # Also runs when one of the two steps above failed, so that the other one's result is kept.
+      # The run still shows as failed
+      - name: Commit to the stats branch
+        if: ${{ !cancelled() }}
+        run: |
+          git add --all
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "chore: update stats"
+          git push origin stats
