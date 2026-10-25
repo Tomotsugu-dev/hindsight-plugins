@@ -1,0 +1,75 @@
+# Checks a pull request that changes the plugin or theme list, and writes the result as a comment on
+# it. The workflow and the script come from main. The files in the pull request are only read with
+# git: nothing in them runs, so a pull request from a fork cannot use the token.
+name: Check listing
+
+on:
+  pull_request_target:
+    paths:
+      - plugins.json
+      - themes.json
+      - icons/**
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# A new push to the pull request cancels the check of the push before it
+concurrency:
+  group: check-listing-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out main, not the pull request. The history is needed to find the merge base
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch the pull request
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: git fetch --no-tags origin "pull/$PR/head"
+
+      # The step itself passes, so that the comment is written. The last step fails the check
+      - name: Check
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          report="$RUNNER_TEMP/report.md"
+          echo "<!-- check-listing -->" > "$report"
+          set +e
+          python3 scripts/check_listing.py origin/main "$HEAD_SHA" --author "$AUTHOR" >> "$report"
+          status=$?
+          set -e
+          # 1 means problems. Anything else means the script itself failed
+          if [ "$status" -ne 0 ] && [ "$status" -ne 1 ]; then
+            echo "The check could not run. See the log of the Check listing workflow." >> "$report"
+          fi
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      # Updates the comment of the last check, so the pull request has only one
+      - name: Comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          id=$(gh api "repos/$REPO/issues/$PR/comments" --paginate --jq \
+            '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- check-listing -->"))) | .id' \
+            | head -n 1)
+          if [ -n "$id" ]; then
+            gh api --method PATCH "repos/$REPO/issues/comments/$id" -F "body=@$RUNNER_TEMP/report.md" > /dev/null
+          else
+            gh api --method POST "repos/$REPO/issues/$PR/comments" -F "body=@$RUNNER_TEMP/report.md" > /dev/null
+          fi
+
+      - name: Fail if there are problems
+        if: steps.check.outputs.status != '0'
+        run: exit 1
