@@ -2,10 +2,10 @@
   <img src="../../images/hindsight-logo.png" alt="Hindsight" width="140">
 </p>
 
-<h1 align="center">Hindsight プラグインマーケット</h1>
+<h1 align="center">Hindsight プラグイン・テーママーケット</h1>
 
 <p align="center">
-  プラグインを探し、自分で作り、新しいバージョンをマーケットに掲載できます。
+  プラグインとテーマを探し、自分のプラグインを作り、マーケットに掲載できます。
 </p>
 
 <p align="center">
@@ -18,12 +18,14 @@
 </p>
 
 <p align="center">
-  <a href="#プラグイン">プラグインを見る</a> · <a href="#プラグインを作る">プラグインを作る</a> · <a href="#プラグインを掲載する">掲載する</a>
+  <a href="#プラグイン">プラグインを見る</a> · <a href="#プラグインを作る">プラグインを作る</a> · <a href="#プラグインを掲載する">掲載する</a> · <a href="#テーマ">テーマ</a>
 </p>
 
 ---
 
-[Hindsight](https://github.com/Tomotsugu-dev/Hindsight) のプラグインマーケットに載るプラグインの一覧です。ユーザーが「設定 → プラグイン」を開くたびに、Hindsight はこのリポジトリの `main` ブランチから [plugins.json](../../../plugins.json) と [icons/](../../../icons/) のアイコンを読み込みます。GitHub はこれらのファイルを最大 5 分間キャッシュするため、push した変更が反映されるまで最大でその程度かかります。
+[Hindsight](https://github.com/Tomotsugu-dev/Hindsight) のプラグインマーケットに載るプラグインの一覧です。ユーザーが「設定 → プラグイン」を開くたびに、Hindsight はこのリポジトリの `main` ブランチから [plugins.json](../../../plugins.json) と [icons/](../../../icons/) のアイコンを読み込みます。
+
+このリポジトリには、[テーマサイト](https://hindsight.kyosweb.com/themes/)のテーマ一覧 [themes.json](../../../themes.json) もあります。
 
 ## プラグイン
 
@@ -45,6 +47,15 @@
 ## プラグインを掲載する
 
 プラグインや新しいバージョンは pull request で掲載します。手順、`plugins.json` のフィールド、審査で確認する点は [CONTRIBUTING.md](../../../CONTRIBUTING.md)（英語）を参照してください。
+
+## テーマ
+
+テーマで Hindsight の見た目を変えられます。[テーマサイト](https://hindsight.kyosweb.com/themes/)では、どのテーマもダウンロードする前にブラウザで試せます。ダウンロードしたら展開し、Hindsight の「設定 → 外観 → カスタムテーマ」で「テーマを読み込む」をクリックして `theme.json` を選びます。
+
+- テーマの作り方：[Write a Hindsight theme](../../en/themes.md)（英語）
+- テーマの掲載方法：CONTRIBUTING.md の [Themes](../../../CONTRIBUTING.md#themes)（英語）
+
+テーマには Hindsight 0.10.2 以降が必要です。
 
 ## サードパーティのプラグイン
 

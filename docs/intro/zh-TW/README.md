@@ -2,10 +2,10 @@
   <img src="../../images/hindsight-logo.png" alt="Hindsight" width="140">
 </p>
 
-<h1 align="center">Hindsight 外掛市集</h1>
+<h1 align="center">Hindsight 外掛、主題市集</h1>
 
 <p align="center">
-  瀏覽外掛、撰寫自己的外掛，並提交新版本上架。
+  瀏覽外掛和主題，撰寫自己的外掛，並提交上架。
 </p>
 
 <p align="center">
@@ -18,12 +18,14 @@
 </p>
 
 <p align="center">
-  <a href="#外掛">瀏覽外掛</a> · <a href="#撰寫外掛">撰寫外掛</a> · <a href="#上架外掛">上架外掛</a>
+  <a href="#外掛">瀏覽外掛</a> · <a href="#撰寫外掛">撰寫外掛</a> · <a href="#上架外掛">上架外掛</a> · <a href="#主題">主題</a>
 </p>
 
 ---
 
-[Hindsight](https://github.com/Tomotsugu-dev/Hindsight) 外掛市集的外掛清單。使用者每次開啟「設定 → 外掛」時，Hindsight 會從這個儲存庫的 `main` 分支讀取 [plugins.json](../../../plugins.json) 和 [icons/](../../../icons/) 裡的圖示。GitHub 會把這些檔案快取最多 5 分鐘，所以推送的變更最多要等這麼久才會出現。
+[Hindsight](https://github.com/Tomotsugu-dev/Hindsight) 外掛市集的外掛清單。使用者每次開啟「設定 → 外掛」時，Hindsight 會從這個儲存庫的 `main` 分支讀取 [plugins.json](../../../plugins.json) 和 [icons/](../../../icons/) 裡的圖示。
+
+這個儲存庫也放著[主題網站](https://hindsight.kyosweb.com/themes/)的主題清單 [themes.json](../../../themes.json)。
 
 ## 外掛
 
@@ -45,6 +47,15 @@
 ## 上架外掛
 
 外掛和新版本都透過 pull request 上架。步驟、`plugins.json` 的欄位和審核項目，請見 [CONTRIBUTING.md](../../../CONTRIBUTING.md)（英文）。
+
+## 主題
+
+主題改變 Hindsight 的外觀。[主題網站](https://hindsight.kyosweb.com/themes/)上的每個主題都能先在網頁裡試用，再下載。下載後解壓縮，在 Hindsight 的「設定 → 外觀 → 自訂主題」裡點「匯入主題」，選 `theme.json`。
+
+- 主題檔案怎麼寫：[寫一個 Hindsight 主題](../../zh/themes.md)（簡體中文）
+- 怎麼上架主題：CONTRIBUTING.md 的 [Themes](../../../CONTRIBUTING.md#themes)（英文）
+
+主題需要 Hindsight 0.10.2 或更新的版本。
 
 ## 第三方外掛
 

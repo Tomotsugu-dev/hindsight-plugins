@@ -2,10 +2,10 @@
   <img src="docs/images/hindsight-logo.png" alt="Hindsight" width="140">
 </p>
 
-<h1 align="center">Hindsight Plugin Market</h1>
+<h1 align="center">Hindsight Plugin and Theme Market</h1>
 
 <p align="center">
-  Browse plugins, build your own, and submit a release to the market.
+  Browse plugins and themes, build your own plugin, and submit it to the market.
 </p>
 
 <p align="center">
@@ -18,12 +18,14 @@
 </p>
 
 <p align="center">
-  <a href="#plugins">Browse plugins</a> · <a href="#writing-a-plugin">Build a plugin</a> · <a href="#submit-a-plugin">Submit a plugin</a>
+  <a href="#plugins">Browse plugins</a> · <a href="#writing-a-plugin">Build a plugin</a> · <a href="#submit-a-plugin">Submit a plugin</a> · <a href="#themes">Themes</a>
 </p>
 
 ---
 
-The plugin list for the plugin market in [Hindsight](https://github.com/Tomotsugu-dev/Hindsight). Each time the user opens Settings → Plugins, Hindsight reads [plugins.json](plugins.json) and the icons in [icons/](icons/) from the `main` branch of this repository. GitHub caches these files for up to 5 minutes, so a pushed change can take that long to show up.
+The plugin list for the plugin market in [Hindsight](https://github.com/Tomotsugu-dev/Hindsight). Each time the user opens Settings → Plugins, Hindsight reads [plugins.json](plugins.json) and the icons in [icons/](icons/) from the `main` branch of this repository.
+
+This repository also holds [themes.json](themes.json), the theme list of the [theme website](https://hindsight.kyosweb.com/themes/).
 
 ## Plugins
 
@@ -45,6 +47,15 @@ Plugins need Hindsight 0.10.0 or later.
 ## Submit a plugin
 
 Plugins and new versions are listed by pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps, the fields of `plugins.json`, and what review checks.
+
+## Themes
+
+A theme changes how Hindsight looks. On the [theme website](https://hindsight.kyosweb.com/themes/), you can try each theme in your browser before you download it. Unzip the download, then in Hindsight open Settings → Appearance → Custom themes, click Import theme, and choose `theme.json`.
+
+- Make a theme: [Write a Hindsight theme](docs/en/themes.md), also in [简体中文](docs/zh/themes.md)
+- List a theme: [Themes](CONTRIBUTING.md#themes) in CONTRIBUTING.md
+
+Themes need Hindsight 0.10.2 or later.
 
 ## Third-party plugins
 
