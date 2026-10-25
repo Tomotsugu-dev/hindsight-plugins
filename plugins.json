@@ -16,6 +16,25 @@
       "repo": "Tomotsugu-dev/hindsight-focus",
       "versions": [
         {
+          "version": "0.2.4",
+          "url": "https://github.com/Tomotsugu-dev/hindsight-focus/releases/download/0.2.4/hindsight-focus-0.2.4.zip",
+          "sha256": "1f714e1759cf709e7620e88c207e43c1ae53f75e8ec87d211a79645a223944d0",
+          "permissions": [
+            "stats.read",
+            "stats.today",
+            "stats.month",
+            "categories.read",
+            "super_categories.read",
+            "focus.changed",
+            "focus.app",
+            "focus.category",
+            "notifications",
+            "notifications.sound",
+            "island"
+          ],
+          "storage_mb": 1
+        },
+        {
           "version": "0.2.1",
           "url": "https://github.com/Tomotsugu-dev/hindsight-focus/releases/download/0.2.1/hindsight-focus-0.2.1.zip",
           "sha256": "0459a781334a1a3fe31dfd0641bde73d96f9782970a1b405c1684363d7fe539c",
