@@ -103,7 +103,7 @@ After the merge, the plugin shows up the next time users open Settings → Plugi
 
 ## Themes
 
-The [theme website](https://hindsight.kyosweb.com/themes/) lists the themes in `themes.json`. Each theme has three buttons: Preview tries the theme in a demo of Hindsight, Homepage opens your page, and Download opens the release of the newest listed version. To make a theme, see [Hindsight themes](https://github.com/Tomotsugu-dev/Hindsight/blob/main/docs/design/themes/README.md).
+The [theme website](https://hindsight.kyosweb.com/themes/) lists the themes in `themes.json`. Each theme has three buttons: Preview tries the theme in a demo of Hindsight, Homepage opens your page, and Download opens the release of the newest listed version. To make a theme, see [Write a Hindsight theme](docs/en/themes.md).
 
 ### Before you open a pull request
 
