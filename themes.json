@@ -36,6 +36,18 @@
           "sha256": "2278fff4ea084ef4c621742382c84167f6662f6cc616a54d3dc42ad8a7a4da08"
         }
       ]
+    },
+    {
+      "id": "strawberry-milk",
+      "repo": "Tomotsugu-dev/hindsight-themes",
+      "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/strawberry-milk",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/download/strawberry-milk-1.0.0/strawberry-milk-1.0.0.zip",
+          "sha256": "7e5fdc473a8342c40bc6cfc57edbc9b37c68248ef163e537b35e8fb9d02310bf"
+        }
+      ]
     }
   ]
 }
