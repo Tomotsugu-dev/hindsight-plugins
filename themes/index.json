@@ -48,7 +48,7 @@
       "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/vermillion-cover",
       "release_url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/tag/vermillion-cover-1.0.0",
       "sha256": "9d6c794ec292bd1231ba1502106d2cd0143cb51260e42efafc50aa5c23ad195f",
-      "downloads": 7
+      "downloads": 8
     },
     {
       "id": "night-sakura",
@@ -132,7 +132,7 @@
       "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/night-sakura",
       "release_url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/tag/night-sakura-1.0.0",
       "sha256": "2278fff4ea084ef4c621742382c84167f6662f6cc616a54d3dc42ad8a7a4da08",
-      "downloads": 0
+      "downloads": 3
     },
     {
       "id": "strawberry-milk",
@@ -221,7 +221,7 @@
       "homepage": "https://github.com/Tomotsugu-dev/hindsight-themes/tree/main/strawberry-milk",
       "release_url": "https://github.com/Tomotsugu-dev/hindsight-themes/releases/tag/strawberry-milk-1.0.0",
       "sha256": "7e5fdc473a8342c40bc6cfc57edbc9b37c68248ef163e537b35e8fb9d02310bf",
-      "downloads": 0
+      "downloads": 3
     }
   ]
 }
